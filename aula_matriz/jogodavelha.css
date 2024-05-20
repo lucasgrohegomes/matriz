@@ -34,3 +34,8 @@ button:disabled{
 #bt02, #bt12, #bt22{
     border-right: 0;
 }
+
+#div1{
+    display: flex;
+    justify-content: center;
+}

@@ -8,6 +8,11 @@
 // }
 var button, quebra_linha, jogada = 1
 var tabuleiro = new Array(3)
+
+divisao = document.createElement("div")
+divisao.setAttribute("id", "div1")
+document.body.append(divisao)
+
     for(var i = 0; i< tabuleiro.length; i ++){
         tabuleiro[i] = new Array(3)
 }
@@ -25,10 +30,16 @@ var tabuleiro = new Array(3)
         }            
 }
 
+// fimdiv = document.createElement("/div")
+// document.body.append(fimdiv)
+
     function marcaCasa(nomeBotao){
         if(jogada % 2 == 0){
             document.getElementById(nomeBotao).innerText = "O"
-        }else{ document.getElementById(nomeBotao).innerText = "X"}
+            document.getElementById(nomeBotao).style.color = "darkblue"
+        }else{ document.getElementById(nomeBotao).innerText = "X"
+        document.getElementById(nomeBotao).style.color = "maroon"
+    }
         document.getElementById(nomeBotao).disabled = true
         jogada ++
         if(jogada >= 5)+
