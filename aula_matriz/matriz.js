@@ -9,10 +9,6 @@
 var button, quebra_linha, jogada = 1
 var tabuleiro = new Array(3)
 
-divisao = document.createElement("div")
-divisao.setAttribute("id", "div1")
-document.body.append(divisao)
-
     for(var i = 0; i< tabuleiro.length; i ++){
         tabuleiro[i] = new Array(3)
 }
@@ -29,9 +25,6 @@ document.body.append(divisao)
             document.body.append(button)
         }            
 }
-
-// fimdiv = document.createElement("/div")
-// document.body.append(fimdiv)
 
     function marcaCasa(nomeBotao){
         if(jogada % 2 == 0){
