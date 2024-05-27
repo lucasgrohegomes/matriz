@@ -40,52 +40,29 @@ var tabuleiro = new Array(3)
     }
 
     function encerraJogo(){
-        if(document.getElementById("bt00").innerText == document.getElementById("bt01").innerText 
-        && document.getElementById("bt01").innerText == document.getElementById("bt02").innerText 
-        && document.getElementById("bt00").innerText != ""
-        ) 
-        {alert("Jogo Finalizado!\nVencedor:" + document.getElementById("bt00").innerText)}
-        
-        if(document.getElementById("bt10").innerText == document.getElementById("bt11").innerText 
-        && document.getElementById("bt11").innerText == document.getElementById("bt12").innerText 
-        && document.getElementById("bt10").innerText != ""
-        ) 
-        {alert("Jogo Finalizado!\nVencedor:" + document.getElementById("bt20").innerText)}
-        
-        if(document.getElementById("bt20").innerText == document.getElementById("bt21").innerText 
-        && document.getElementById("bt21").innerText == document.getElementById("bt22").innerText 
-        && document.getElementById("bt20").innerText != ""
-        ) 
-        {alert("Jogo Finalizado!\nVencedor:" + document.getElementById("bt20").innerText)}
+        var combinacoes = [
+            ["bt00", "bt01", "bt02"],
+            ["bt10", "bt11", "bt12"],
+            ["bt20", "bt21", "bt22"],
+            ["bt00", "bt10", "bt20"],
+            ["bt01", "bt11", "bt21"],
+            ["bt02", "bt12", "bt22"],
+            ["bt00", "bt11", "bt22"],
+            ["bt02", "bt11", "bt20"]
+        ];
 
-        if(document.getElementById("bt00").innerText == document.getElementById("bt10").innerText 
-        && document.getElementById("bt10").innerText == document.getElementById("bt20").innerText 
-        && document.getElementById("bt00").innerText != ""
-        ) 
-        {alert("Jogo Finalizado!\nVencedor:" + document.getElementById("bt00").innerText)}
-
-        if(document.getElementById("bt01").innerText == document.getElementById("bt11").innerText 
-        && document.getElementById("bt11").innerText == document.getElementById("bt21").innerText 
-        && document.getElementById("bt01").innerText != ""
-        ) 
-        {alert("Jogo Finalizado!\nVencedor:" + document.getElementById("bt01").innerText)}
-
-        if(document.getElementById("bt02").innerText == document.getElementById("bt12").innerText 
-        && document.getElementById("bt12").innerText == document.getElementById("bt22").innerText 
-        && document.getElementById("bt02").innerText != ""
-        ) 
-        {alert("Jogo Finalizado!\nVencedor:" + document.getElementById("bt02").innerText)}
-
-        if(document.getElementById("bt00").innerText == document.getElementById("bt11").innerText 
-        && document.getElementById("bt11").innerText == document.getElementById("bt22").innerText 
-        && document.getElementById("bt00").innerText != ""
-        ) 
-        {alert("Jogo Finalizado!\nVencedor:" + document.getElementById("bt00").innerText)}
-
-        if(document.getElementById("bt02").innerText == document.getElementById("bt11").innerText 
-        && document.getElementById("bt11").innerText == document.getElementById("bt20").innerText 
-        && document.getElementById("bt02").innerText != ""
-        ) 
-        {alert("Jogo Finalizado!\nVencedor:" + document.getElementById("bt02").innerText)}
+        for (var combinacao of combinacoes) {
+            var [a, b, c] = combinacao;
+            if (document.getElementById(a).innerText &&
+                document.getElementById(a).innerText === document.getElementById(b).innerText &&
+                document.getElementById(a).innerText === document.getElementById(c).innerText) {
+                alert("Jogo Finalizado!\nVencedor: " + document.getElementById(a).innerText);
+                desabilitaBotoes();
+                return;
+            }
+        }
+        if (jogada > 9) {
+            alert("Jogo Finalizado! Empate.");
+        }
     }
     
